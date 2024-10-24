@@ -21,7 +21,7 @@ public class FetchUtil {
       throw new RuntimeException(e);
     }
 
-    System.out.println(response.body()); // print JSON response
+//    System.out.println(response.body()); // print JSON response
     return response.body();  // Return the JSON response
   }
 
