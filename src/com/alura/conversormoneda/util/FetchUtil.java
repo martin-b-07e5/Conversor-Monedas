@@ -8,11 +8,12 @@ import java.net.http.HttpResponse;
 
 public class FetchUtil {
 
-  public static String fetchExchangeRate(String url) {
+  public static String fetchExchangeRate(String url_str) {
+
     HttpResponse<String> response;
     try (HttpClient client = HttpClient.newHttpClient()) {
       HttpRequest request = HttpRequest.newBuilder()
-          .uri(URI.create(url))
+          .uri(URI.create(url_str))
           .build();
 
       response = client.send(request, HttpResponse.BodyHandlers.ofString());

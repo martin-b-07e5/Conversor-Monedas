@@ -1,6 +1,8 @@
 package com.alura.conversormoneda;
 
+import com.alura.conversormoneda.model.ExchangeRate;
 import com.alura.conversormoneda.util.FetchUtil;
+import com.alura.conversormoneda.util.ParserUtil;
 
 import java.util.Scanner;
 
@@ -27,7 +29,10 @@ public class Main {
 
     // Llamamos a los métodos desde las clases utilitarias
     String json = FetchUtil.fetchExchangeRate(url);
+    ExchangeRate exchangeRate = ParserUtil.parseData(json);
 
-
+    // Ejemplo de uso: obtener la tasa de cambio para ARS (Peso Argentino)
+    double tasaPesoArgentino = exchangeRate.getConversion_rates().get("ARS");
+    System.out.println("Tasa de cambio Dólar => Peso Argentino: " + tasaPesoArgentino);
   }
 }
